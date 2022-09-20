@@ -32,22 +32,22 @@ for ($i=0; $i<$ext_cnt; $i++) {
 
 function g5_path()
 {
-    $chroot = substr($_SERVER['SCRIPT_FILENAME'], 0, strpos($_SERVER['SCRIPT_FILENAME'], dirname(__FILE__))); 
-    $result['path'] = str_replace('\\', '/', $chroot.dirname(__FILE__)); 
-    $server_script_name = preg_replace('/\/+/', '/', str_replace('\\', '/', $_SERVER['SCRIPT_NAME'])); 
-    $server_script_filename = preg_replace('/\/+/', '/', str_replace('\\', '/', $_SERVER['SCRIPT_FILENAME'])); 
-    $tilde_remove = preg_replace('/^\/\~[^\/]+(.*)$/', '$1', $server_script_name); 
-    $document_root = str_replace($tilde_remove, '', $server_script_filename); 
+    $chroot = substr($_SERVER['SCRIPT_FILENAME'], 0, strpos($_SERVER['SCRIPT_FILENAME'], dirname(__FILE__)));
+    $result['path'] = str_replace('\\', '/', $chroot.dirname(__FILE__));
+    $server_script_name = preg_replace('/\/+/', '/', str_replace('\\', '/', $_SERVER['SCRIPT_NAME']));
+    $server_script_filename = preg_replace('/\/+/', '/', str_replace('\\', '/', $_SERVER['SCRIPT_FILENAME']));
+    $tilde_remove = preg_replace('/^\/\~[^\/]+(.*)$/', '$1', $server_script_name);
+    $document_root = str_replace($tilde_remove, '', $server_script_filename);
     $pattern = '/.*?' . preg_quote($document_root, '/') . '/i';
-    $root = preg_replace($pattern, '', $result['path']); 
-    $port = ($_SERVER['SERVER_PORT'] == 80 || $_SERVER['SERVER_PORT'] == 443) ? '' : ':'.$_SERVER['SERVER_PORT']; 
-    $http = 'http' . ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS']=='on') ? 's' : '') . '://'; 
-    $user = str_replace(preg_replace($pattern, '', $server_script_filename), '', $server_script_name); 
-    $host = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : $_SERVER['SERVER_NAME']; 
-    if(isset($_SERVER['HTTP_HOST']) && preg_match('/:[0-9]+$/', $host)) 
-        $host = preg_replace('/:[0-9]+$/', '', $host); 
-    $host = preg_replace("/[\<\>\'\"\\\'\\\"\%\=\(\)\/\^\*]/", '', $host); 
-    $result['url'] = $http.$host.$port.$user.$root; 
+    $root = preg_replace($pattern, '', $result['path']);
+    $port = ($_SERVER['SERVER_PORT'] == 80 || $_SERVER['SERVER_PORT'] == 443) ? '' : ':'.$_SERVER['SERVER_PORT'];
+    $http = 'http' . ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS']=='on') ? 's' : '') . '://';
+    $user = str_replace(preg_replace($pattern, '', $server_script_filename), '', $server_script_name);
+    $host = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : $_SERVER['SERVER_NAME'];
+    if(isset($_SERVER['HTTP_HOST']) && preg_match('/:[0-9]+$/', $host))
+        $host = preg_replace('/:[0-9]+$/', '', $host);
+    $host = preg_replace("/[\<\>\'\"\\\'\\\"\%\=\(\)\/\^\*]/", '', $host);
+    $result['url'] = $http.$host.$port.$user.$root;
     return $result;
 }
 
@@ -158,7 +158,7 @@ if (file_exists($dbconfig_file)) {
     // mysql connect resource $g5 배열에 저장 - 명랑폐인님 제안
     $g5['connect_db'] = $connect_db;
 
-    sql_set_charset(G5_DB_CHARSET, $connect_db);
+    sql_set_charset(utf8mb4, $connect_db);
     if(defined('G5_MYSQL_SET_MODE') && G5_MYSQL_SET_MODE) sql_query("SET SESSION sql_mode = ''");
     if (defined('G5_TIMEZONE')) sql_query(" set time_zone = '".G5_TIMEZONE."'");
 } else {
@@ -262,7 +262,7 @@ if( ! class_exists('XenoPostToForm') ){
         }
 
         public static function check() {
-            $cookie_session_name = self::g5_session_name(); 
+            $cookie_session_name = self::g5_session_name();
 
             return !isset($_COOKIE[$cookie_session_name]) && count($_POST) && ((isset($_SERVER['HTTP_REFERER']) && !preg_match('~^https://'.preg_quote($_SERVER['HTTP_HOST'], '~').'/~', $_SERVER['HTTP_REFERER']) || ! isset($_SERVER['HTTP_REFERER']) ));
         }
@@ -374,7 +374,7 @@ if( $config['cf_cert_use'] || (defined('G5_YOUNGCART_VER') && G5_YOUNGCART_VER) 
 
             $headers = headers_list();
             krsort($headers);
-            $cookie_session_name = method_exists('XenoPostToForm', 'g5_session_name') ? XenoPostToForm::g5_session_name() : 'PHPSESSID'; 
+            $cookie_session_name = method_exists('XenoPostToForm', 'g5_session_name') ? XenoPostToForm::g5_session_name() : 'PHPSESSID';
             foreach ($headers as $header) {
                 if (!preg_match('~^Set-Cookie: '.$cookie_session_name.'=~', $header)) continue;
                 $header = preg_replace('~; secure(; HttpOnly)?$~', '', $header) . '; secure; SameSite=None';
@@ -521,9 +521,9 @@ if (isset($_SESSION['ss_mb_id']) && $_SESSION['ss_mb_id']) { // 로그인중이�
     $member = get_member($_SESSION['ss_mb_id']);
 
     // 차단된 회원이면 ss_mb_id 초기화, 또는 세션에 저장된 회원 토큰값을 비교하여 틀리면 초기화
-    if( ($member['mb_intercept_date'] && $member['mb_intercept_date'] <= date("Ymd", G5_SERVER_TIME)) 
+    if( ($member['mb_intercept_date'] && $member['mb_intercept_date'] <= date("Ymd", G5_SERVER_TIME))
         || ($member['mb_leave_date'] && $member['mb_leave_date'] <= date("Ymd", G5_SERVER_TIME))
-        || (function_exists('check_auth_session_token') && !check_auth_session_token($member['mb_datetime'])) 
+        || (function_exists('check_auth_session_token') && !check_auth_session_token($member['mb_datetime']))
         ) {
         set_session('ss_mb_id', '');
         $member = array();
@@ -594,8 +594,8 @@ if ($bo_table) {
             }
         }
     }
-    
-    // 게시판에서 
+
+    // 게시판에서
     if (isset($board['bo_select_editor']) && $board['bo_select_editor']){
         $config['cf_editor'] = $board['bo_select_editor'];
     }
