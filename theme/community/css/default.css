@@ -139,7 +139,7 @@ border:1px solid #558ab7 !important;
 #gnb_1dul a{color:#fff;font-size:13px}
 #gnb_1dul:after {display:block;visibility:hidden;clear:both;content:""}
 .gnb_1dli {z-index:10;position:relative;display:inline-block;text-align:center}
-.gnb_1da {display:inline-block;padding:0 15px;height:35px;line-height:35px;text-decoration:none}
+.gnb_1da {display:inline-block;padding:0 15px;height:35px;line-height:35px;text-decoration:none; border-spacing: 40px}
 .gnb_1da:focus, .gnb_1da:hover {text-decoration:none}
 .gnb_1dli_air .gnb_1da {background-color:#2e6fbb;color:#fff}
 .gnb_1dli_on .gnb_1da {background-color:#2e6fbb;color:#fff}
