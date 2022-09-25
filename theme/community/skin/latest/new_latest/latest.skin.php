@@ -20,8 +20,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$latest_skin_url.'/style.css">', 
     }
 
     if($i ==0)
-        echo '<li class="empty_li">게시물이 없습니다.</li>'.PHP_EOL;
+        echo '<li class="empty_li">게시물을 작성해주세요.</li>'.PHP_EOL;
     ?>
     </ul>
 </div>
-
