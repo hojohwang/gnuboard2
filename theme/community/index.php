@@ -35,7 +35,7 @@ add_javascript('<script src="'.G5_THEME_JS_URL.'/unslider.min.js"></script>', 10
 <script>
 $(function() {
     $("#main_bn").unslider({
-        speed: 700,               //  The speed to animate each slide (in milliseconds)
+        speed: 3000,               //  The speed to animate each slide (in milliseconds)
         delay: 30,              //  The delay between slide animations (in milliseconds)
         keys: true,               //  Enable keyboard (left, right) arrow shortcuts
         dots: true,               //  Display dot navigation
