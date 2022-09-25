@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 .lt_title {display:block;margin-bottom:20px;font-size:14px}
-.lt_box {min-height:200px;border:1px solid #e8e8e8;padding:15px;background:#fff}
+.lt_box {min-height:200px;min-width: 200px;border:1px solid #e8e8e8;padding:15px;background:#fff}
 .lt_box ul {margin:0;padding:0}
 .lt_box li {list-style:none;padding-left:10px}
 .lt_box li:before {position:absolute;left:15px;width:4px;height:4px;margin-top:10px;background:#aaa;content:'';border-radius:50%}
