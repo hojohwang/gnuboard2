@@ -180,7 +180,7 @@ border:1px solid #558ab7 !important;
 #container_title {padding-bottom:5px;margin-bottom:10px;font-size:16px;font-weight:bold}
 
 /*메인배너*/
-#main_bn_box{border:1px solid #e8e8e8;margin-bottom:45px;width:900px;height:320px;overflow:hidden}
+#main_bn_box{border:1px solid #e8e8e8;margin-bottom:5px;width:900px;height:90px;overflow:hidden}
 #main_bn {position:relative;overflow:auto;width:100% !important}
 #main_bn .bn_ul{margin:0;padding:0}
 #main_bn .bn_ul li{float:left;list-style:none}
