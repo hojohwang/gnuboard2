@@ -175,12 +175,12 @@ border:1px solid #558ab7 !important;
 #aside_ct {margin-top:15px;width:280px}
 #aside_ct ul {margin:0;padding:0}
 
-#container {z-index:4;position:relative;float:left;width:900px;min-height:1000px;height:auto !important;height:1000px;font-size:1em}
+#container {z-index:4;position:relative;float:left;width:900px;min-height:100px;height:auto !important;height:1000px;font-size:1em}
 #container:after {display:block;visibility:hidden;clear:both;content:""}
 #container_title {padding-bottom:5px;margin-bottom:10px;font-size:16px;font-weight:bold}
 
 /*메인배너*/
-#main_bn_box{border:1px solid #e8e8e8;margin-bottom:5px;width:900px;height:90px;overflow:hidden}
+#main_bn_box{border:1px solid #e8e8e8;margin-bottom:5px;width:90px;height:90px;overflow:hidden}
 #main_bn {position:relative;overflow:auto;width:100% !important}
 #main_bn .bn_ul{margin:0;padding:0}
 #main_bn .bn_ul li{float:left;list-style:none}
