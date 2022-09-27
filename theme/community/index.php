@@ -75,7 +75,7 @@ $(function() {
 			    ?>
 			<div class="lt_more"><a href="<?php echo G5_BBS_URL ?>/new.php"><span class="sound_only">🔔질문하기🔔</span>더보기</a></div>
 		</div>
-	</div>s
+	</div>
 
 	<div class="lt_li lt_li_left">
 	    <?php
