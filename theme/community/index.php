@@ -56,7 +56,7 @@ $(function() {
 	<div class="lt_li lt_li_left">
 		<!-- 전체 게시판 최신글 -->
 		<div class="lt_li">
-		    <h2 class="lt_title"><a href="<?php echo G5_BBS_URL ?>/new.php">💡최신글💡</a></h2>
+		    <h2 class="lt_title" style width = 600px><a href="<?php echo G5_BBS_URL ?>/new.php">💡최신글💡</a></h2>
 			    <?php
 			    // new_latest('스킨', '출력라인', '글자수', 'is_comment', cache_minute)
 			    echo new_latest('theme/new_latest', 20, 20, false, 5);
