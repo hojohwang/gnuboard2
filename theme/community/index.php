@@ -53,20 +53,8 @@ $(function() {
 
 <section class="idx_cnt">
 
-  <div class="lt_li lt_li_left">
-		<!-- 최신댓글 -->
-    <div class="lt">
-		    <h2 class="lt_title"><a href="<?php echo G5_BBS_URL ?>/new.php">💡최신글💡</a></h2>
-			    <?php
-			    // new_latest('스킨', '출력라인', '글자수', 'is_comment', cache_minute)
-			    echo new_latest('theme/new_latest', 6, 20, true, 0.01);
-			    ?>
-			<div class="lt_more"><a href="<?php echo G5_BBS_URL ?>/new.php"><span class="sound_only">전체 게시판 최신글</span>더보기</a></div>
-		</div>
-	</div>
-
-<!--  <div class="lt_li lt_li_left">
-	전체 게시판 최신글
+ <div class="lt_li lt_li_left">
+		<!-- 전체 게시판 최신글-->
 		<div class="lt">
 		    <h2 class="lt_title"><a href="<?php echo G5_BBS_URL ?>/new.php">💡최신글💡</a></h2>
 			    <?php
@@ -74,8 +62,8 @@ $(function() {
 			    echo new_latest('theme/new_latest', 20, 20, false, 0.01);
 			    ?>
 			<div class="lt_more"><a href="<?php echo G5_BBS_URL ?>/new.php"><span class="sound_only">전체 게시판 최신글</span>더보기</a></div>
-		</div> -
-  </div> -->
+		</div>
+  </div>
 
 	<div class="lt_li">
 		<!-- 최신댓글 -->
@@ -98,7 +86,7 @@ $(function() {
 	    ?>
 	</div>
 
-  <div class="lt_li">
+  <div class="lt_li lt_li_left">
 	    <?php
 	    // 이 함수가 바로 최신글을 추출하는 역할을 합니다.
 	    // 사용방법 : latest(스킨, 게시판아이디, 출력라인, 글자수);
