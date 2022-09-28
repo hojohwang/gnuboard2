@@ -55,7 +55,7 @@ $(function() {
 
 	<div class="lt_li lt_li_left">
 		<!-- 전체 게시판 최신글 -->
-		<div class="lt_li" style="min-width=200px; display: block;">
+		<div class="lt" style="display: block;">
 		    <h2 class="lt_title"><a href="<?php echo G5_BBS_URL ?>/new.php">💡최신글💡</a></h2>
 			    <?php
 			    // new_latest('스킨', '출력라인', '글자수', 'is_comment', cache_minute)
@@ -65,7 +65,7 @@ $(function() {
 		</div>
   </div>
 
-	<div class="lt_li lt_li_left">
+	<div class="lt_li lt_li_left"z>
 		<!-- 최신댓글 -->
 <div class="lt">
 		    <h2 class="lt_title"><a href="<?php echo G5_BBS_URL ?>/new.php">🔔최신 댓글🔔</a></h2>
