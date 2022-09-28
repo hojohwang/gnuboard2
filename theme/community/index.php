@@ -65,7 +65,7 @@ $(function() {
 		</div>
   </div>
 
-	<div class="lt_li">
+	<div class="lt_li lt_li_left">
 		<!-- 최신댓글 -->
 <div class="lt">
 		    <h2 class="lt_title"><a href="<?php echo G5_BBS_URL ?>/new.php">🔔최신 댓글🔔</a></h2>
